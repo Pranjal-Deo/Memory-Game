@@ -1,16 +1,56 @@
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: #f0f8ff;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
 }
 
+/* Title Styling */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Start Button Styling */
+#startButton {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 30px;
+}
+
+#startButton:hover {
+    background-color: #45a049;
+}
+
+/* Game Board Styling */
 #gameBoard {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    gap: 10px;
+    grid-template-columns: repeat(4, 100px); /* Grid setup */
+    gap: 15px; /* Add a gap between the cards */
     justify-content: center;
     margin-top: 20px;
+    
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Card Styling */
 .card {
     width: 100px;
     height: 100px;
@@ -18,17 +58,58 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 2.5rem;
     cursor: pointer;
     border: 2px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.1);
+    background-color: #e0e0e0;
+}
+
+/* Card flip effect */
+.card.flip {
+    transform: rotateY(180deg);
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Styling for matched cards */
+.matched {
+    background-color: #8bc34a;
+    cursor: default;
+    pointer-events: none;
+    box-shadow: 0 4px 8px rgba(0, 128, 0, 0.3);
+}
+
+/* Hidden class to hide elements */
 .hidden {
     display: none;
 }
 
-.matched {
-    background-color: lightgreen;
-    cursor: default;
+/* Add smooth fade-in and fade-out for start button */
+#startButton {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+#startButton.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Optional styling for the game layout */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Background styling for a more dynamic page */
+body {
+    background: linear-gradient(to right, #ffcccb, #f0f8ff);
 }
